@@ -75,7 +75,7 @@ client.on('ready', () => {
    //Displays time until next update is posted.
    if (msg.content.startsWith("!NextUpdate") && msg.channel.id === id) {
      //now = new Date();
-     //msg.channel.send((23-((date.getHours()))+6) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM")
+     msg.channel.send((23-((date.getHours()))+6) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM")
      msg.channel.send(minsToMidnight());
    }
    //Help
