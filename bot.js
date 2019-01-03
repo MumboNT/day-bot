@@ -26,8 +26,6 @@ var wind = 0;
 var border = "===================================\n";
 //Time-tracker channel
 const id = "530159269056610304";
-//const channel = client.channels.get("528402108161196062");
-//var guild = client.guilds.get("528402048459210753");
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -37,7 +35,7 @@ client.on('ready', () => {
   //Change values dynamically
   client.on('message', msg => {
    //Change week
-   if (msg.content.startsWith("!Week") && msg.channel.id === "529433092679663616") {
+   if (msg.content.startsWith("!Week") && msg.channel.id === id) {
      var test = msg.content.split(' ');
      var newWeek = parseInt(test[1],10);
      console.log(newWeek);
@@ -50,7 +48,7 @@ client.on('ready', () => {
      }
    }
    //Change moon
-   if (msg.content.startsWith("!Moon") && msg.channel.id === "529433092679663616") {
+   if (msg.content.startsWith("!Moon") && msg.channel.id === id) {
      var test = msg.content.split(' ');
      var newMoon = parseInt(test[1],10);
      console.log(newMoon);
@@ -63,20 +61,20 @@ client.on('ready', () => {
      }
    }
    //Display Current values
-   if (msg.content.startsWith("!Display") && msg.channel.id === "529433092679663616") {
+   if (msg.content.startsWith("!Display") && msg.channel.id === id) {
      msg.channel.send("Current values: Week: " + week + " Moon: " + moon + " Season: " + season);
    }
    //Display possible values (Moon)
-   if (msg.content.startsWith("!MoonValues") && msg.channel.id === "529433092679663616") {
+   if (msg.content.startsWith("!MoonValues") && msg.channel.id === id) {
      msg.channel.send("Possible moon values:\n 1 (New Moon) <:new_moon:529421884299804692>\n 2 (Waxing Cresent) <:waxing_crescent_moon:529421976482349076>\n 3 (First Quarter) <:first_quarter_moon:529422288836231168>\n 4 (Waxing Gibbous) <:waxing_gibbous_moon:529422456096686101>\n 5 (Full Moon) <:full_moon:529422530839183370>\n 6 (Waning Gibbous) <:waning_gibbous_moon:529422592721944586>\n 7 (Last Quarter) <:waning_gibbous_moon:529422592721944586>\n 8 (Waning Cresent) <:waning_crescent_moon:529422909543022612>\n");
    }
    //Display possible values (Season)
-   if (msg.content.startsWith("!SeasonValues") && msg.channel.id === "529433092679663616") {
+   if (msg.content.startsWith("!SeasonValues") && msg.channel.id === id) {
      msg.channel.send("Possible season values:\n 1 (Winter) <1-9, 49-52>\n 2 (Spring) <10-22>\n 3 (Summer) <23-35>\n 4 (Autumn) <36-48>\n");
    }
    //Help
-   if (msg.content.startsWith("!Help") && msg.channel.id === "529433092679663616") {
-    msg.channel.send("Commands:\n !Week <1-52>    Sets the week value to an integer entered after !Week.\n !Moon <1-8>      Sets the moon value to an integer entered after !Moon.\n !Display               Displays the current values of week, moon, and season.\n !MoonValues     Displays all possible moon values.\n !SeasonValues   Displays all possible season values.");
+   if (msg.content.startsWith("!Help") && msg.channel.id === id) {
+    msg.channel.send("Commands:\n !Week <1-52>    Sets the week value to an integer entered after !Week.\n !Moon <1-8>      Sets the moon value to an integer entered after !Moon.\n !Display               Displays the current values of week, moon, and season.\n !MoonValues     Displays all possible moon values.\n !SeasonValues   Displays all possible season values.\n Hosted on through Heroku deployment.");
    }
   });
 
