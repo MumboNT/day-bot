@@ -9,7 +9,7 @@ const client = new Discord.Client({
 
 client.login('NTI4NDAyNzk3MDcxMTcxNTg0.Dwhx7g.boZwuesTH6butEW39fTFw7ARz-I');
 
-var week = 30;
+var week = 1;
 var moon = 1;
 var season = 1;
 //Time-tracker string
