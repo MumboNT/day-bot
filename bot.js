@@ -2,9 +2,11 @@
 //Made for the Dragon's Lair Living World Server
 
 const Discord = require('discord.js');
+require('dotenv').config();
 const client = new Discord.Client();
+var token = process.env.TOKEN;
 
-client.login('NTI4NDAyNzk3MDcxMTcxNTg0.Dwhx7g.boZwuesTH6butEW39fTFw7ARz-I');
+client.login(token);
 
 var week = 1;
 var moon = 1;
@@ -76,7 +78,7 @@ client.on('ready', () => {
    }
    //Help
    if (msg.content.startsWith("!Help") && msg.channel.id === id) {
-    msg.channel.send("Commands:\n !Week <1-52>    Sets the week value to an integer entered after !Week.\n !Moon <1-8>      Sets the moon value to an integer entered after !Moon.\n !Display               Displays the current values of week, moon, and season.\n !MoonValues     Displays all possible moon values.\n !SeasonValues   Displays all possible season values.\n!NextUpdate     Displays the time until next output.\n Hosted on through Heroku deployment.");
+    msg.channel.send("Commands:\n !Week <1-52>    Sets the week value to an integer entered after !Week.\n !Moon <1-8>      Sets the moon value to an integer entered after !Moon.\n !Display               Displays the current values of week, moon, and season.\n !MoonValues     Displays all possible moon values.\n !SeasonValues   Displays all possible season values.\n!NextUpdate       Displays the time until next output.\n Hosted on through Heroku deployment.");
    }
   });
 

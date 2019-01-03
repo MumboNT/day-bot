@@ -10,6 +10,7 @@
   "dependencies": {
     "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
     "discord.js": "^11.4.2",
+    "dotenv": "^6.2.0",
     "winston-discord": "^0.2.0"
   }
 }
