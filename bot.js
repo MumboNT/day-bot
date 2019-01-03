@@ -74,8 +74,9 @@ client.on('ready', () => {
    }
    //Displays time until next update is posted.
    if (msg.content.startsWith("!NextUpdate") && msg.channel.id === id) {
-     date = new Date();
-     msg.channel.send(23-((date.getHours())) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM")
+     //now = new Date();
+     //msg.channel.send((23-((date.getHours()))+6) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM")
+     msg.channel.send(minsToMidnight());
    }
    //Help
    if (msg.content.startsWith("!Help") && msg.channel.id === id) {
@@ -688,4 +689,11 @@ function getBAD(){
       string3 = "@everyone, A tornado has occured, check for damage to your property. Hope you didn't leave anything outside.\n";
     }
   }
+}
+
+//Get minutes until midnight
+function minsToMidnight(){
+  var msd = 8.64e7;
+  var now = new Date();
+  return Math.round((msd-(now-now.getTimezoneOffset() * 6e4) % msd) / 6e4);
 }
