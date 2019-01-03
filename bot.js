@@ -77,7 +77,7 @@ client.on('ready', () => {
      date = new Date();
      date.setHours(date.getHours() + 6);
      msg.channel.send( ((23-(date.getHours()))) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM");
-     msg.channel.send( (( ((23-(new Date().getHours()))) *60*60 + (59 - (new Date().getMinutes()))*60 + (60 - (new Date().getSeconds())) )*1000) + " milliseconds until 12AM");
+     msg.channel.send( (( ((23-(date.getHours()))) *60*60 + (59 - (date.getMinutes()))*60 + (60 - (date.getSeconds())) )*1000) + " milliseconds until 12AM");
      //msg.channel.send(minsToMidnight() + " till midnight.");
    }
    //Help
