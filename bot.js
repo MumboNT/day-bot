@@ -2,10 +2,7 @@
 //Made for the Dragon's Lair Living World Server
 
 const Discord = require('discord.js');
-const client = new Discord.Client({
-  token: 'NTI4NDAyNzk3MDcxMTcxNTg0.Dwhx7g.boZwuesTH6butEW39fTFw7ARz-I',
-  autorun: true
-});
+const client = new Discord.Client();
 
 client.login('NTI4NDAyNzk3MDcxMTcxNTg0.Dwhx7g.boZwuesTH6butEW39fTFw7ARz-I');
 
@@ -29,6 +26,7 @@ const id = "530159269056610304";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  var date = new Date();
   const channel = client.channels.get(id);
   channel.send("Type !Help for command list.");
 
@@ -72,9 +70,13 @@ client.on('ready', () => {
    if (msg.content.startsWith("!SeasonValues") && msg.channel.id === id) {
      msg.channel.send("Possible season values:\n 1 (Winter) <1-9, 49-52>\n 2 (Spring) <10-22>\n 3 (Summer) <23-35>\n 4 (Autumn) <36-48>\n");
    }
+   //Displays time until next update is posted.
+   if (msg.content.startsWith("!NextUpdate") && msg.channel.id === id) {
+     msg.channel.send((24 - (date.getHours())) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM")
+   }
    //Help
    if (msg.content.startsWith("!Help") && msg.channel.id === id) {
-    msg.channel.send("Commands:\n !Week <1-52>    Sets the week value to an integer entered after !Week.\n !Moon <1-8>      Sets the moon value to an integer entered after !Moon.\n !Display               Displays the current values of week, moon, and season.\n !MoonValues     Displays all possible moon values.\n !SeasonValues   Displays all possible season values.\n Hosted on through Heroku deployment.");
+    msg.channel.send("Commands:\n !Week <1-52>    Sets the week value to an integer entered after !Week.\n !Moon <1-8>      Sets the moon value to an integer entered after !Moon.\n !Display               Displays the current values of week, moon, and season.\n !MoonValues     Displays all possible moon values.\n !SeasonValues   Displays all possible season values.\n!NextUpdate     Displays the time until next output.\n Hosted on through Heroku deployment.");
    }
   });
 
@@ -82,7 +84,7 @@ client.on('ready', () => {
   //https://en.wikipedia.org/wiki/24-hour_clock
 
   //console.log("Try time");
-  var date = new Date();
+
   //console.log((24 - (date.getHours())) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12Am");
   //Confirmed correct
   //var timeToTwelve = ((24 - (date.getHours()))*60*60+(59 - (date.getMinutes()))*60+(60 - (date.getSeconds())))*1000;
