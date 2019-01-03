@@ -28,7 +28,7 @@ const id = "530159269056610304";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  var date = new Date();
+  var date;
   const channel = client.channels.get(id);
   channel.send("Type !Help for command list.");
 
@@ -74,6 +74,7 @@ client.on('ready', () => {
    }
    //Displays time until next update is posted.
    if (msg.content.startsWith("!NextUpdate") && msg.channel.id === id) {
+     date = new Date();
      msg.channel.send((24 - (date.getHours())) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM")
    }
    //Help
@@ -101,7 +102,7 @@ client.on('ready', () => {
      getForecast();
    }, 24*3600000); // time between each interval in milliseconds
 
- }, ((24 - (date.getHours()))*60*60+(59 - (date.getMinutes()))*60+(60 - (date.getSeconds())))*1000);
+ }, ((24 - (new Date().getHours()))*60*60+(59 - (new Date().getMinutes()))*60+(60 - (new Date().getSeconds())))*1000);
 
 });
 
