@@ -693,7 +693,9 @@ function getBAD(){
 
 //Get minutes until midnight
 function minsToMidnight(){
-  var msd = 8.64e7;
   var now = new Date();
-  return Math.round((msd-(now-now.getTimezoneOffset() * 6e4) % msd) / 6e4);
+  var then = new Date(now);
+  then.setHours(6, 0, 0, 0);
+  return (then - now) / 6e4;
+  //return Math.round((msd-(now-now.getTimezoneOffset() * 6e4) % msd) / 6e4);
 }
