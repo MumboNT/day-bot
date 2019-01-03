@@ -97,7 +97,7 @@ client.on('ready', () => {
   //console.log(timeToTwelve);
 
   date = new Date();
-  date.setHours(date.getHours() + 6);
+  date.setHours(date.getHours() - 6);
 
   setTimeout(function(){
     timeTrackerUpdate();
