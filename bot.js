@@ -75,7 +75,7 @@ client.on('ready', () => {
    //Displays time until next update is posted.
    if (msg.content.startsWith("!NextUpdate") && msg.channel.id === id) {
      date = new Date();
-     msg.channel.send((23-((date.getHours()))) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM");
+     msg.channel.send(((23-(date.getHours()))+6) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM");
      msg.channel.send(minsToMidnight());
    }
    //Help
@@ -695,7 +695,7 @@ function getBAD(){
 function minsToMidnight(){
   var now = new Date();
   var then = new Date(now);
-  then.setHours(12, 0, 0, 0);
+  then.setHours(7, 0, 0, 0);
   return Math.abs((then - now) / 6e4);
   //return Math.round((msd-(now-now.getTimezoneOffset() * 6e4) % msd) / 6e4);
 }
