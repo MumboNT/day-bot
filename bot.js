@@ -79,7 +79,7 @@ client.on('ready', () => {
    }
    //Help
    if (msg.content.startsWith("!Help") && msg.channel.id === id) {
-    msg.channel.send("Commands:\n !Week <1-52>    Sets the week value to an integer entered after !Week.\n !Moon <1-8>      Sets the moon value to an integer entered after !Moon.\n !Display               Displays the current values of week, moon, and season.\n !MoonValues     Displays all possible moon values.\n !SeasonValues   Displays all possible season values.\n!NextUpdate       Displays the time until next output.\n Hosted on through Heroku deployment.");
+    msg.channel.send("Commands:\n !Week <1-52>    Sets the week value to an integer entered after !Week.\n !Moon <1-8>      Sets the moon value to an integer entered after !Moon.\n !Display               Displays the current values of week, moon, and season.\n !MoonValues     Displays all possible moon values.\n !SeasonValues   Displays all possible season values.\n !NextUpdate       Displays the time until next output.\n Hosted on through Heroku deployment.");
    }
   });
 
