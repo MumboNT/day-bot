@@ -451,7 +451,7 @@ function getForecast(){
     string = string + "**Wind Speed:** " + wind  + " mph (" + Math.round((wind*1.6)) + " kph)\n";
     string = string + string2 + "=======================================\n";
   }
-  channel2 = client.channels.get("475087626597302273");
+  channel2 = client.channels.get("530159470836449301");
   channel2.send(string);
   if(string3 !== "") {
     channel2.send(string3);
