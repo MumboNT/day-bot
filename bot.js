@@ -24,7 +24,7 @@ var low = 0;
 var wind = 0;
 var border = "===================================\n";
 //Time-tracker channel
-const id = "403950001765482507";
+const id = "530159269056610304";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
