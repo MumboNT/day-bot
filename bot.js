@@ -104,7 +104,7 @@ client.on('ready', () => {
      getForecast();
    }, 24*3600000); // time between each interval in milliseconds
 
- }, ((23 - (new Date().getHours()+6))*60*60+(59 - (new Date().getMinutes()))*60+(60 - (new Date().getSeconds())))*1000);
+ }, (( ((23-(new Date().getHours()))+6) *60*60 + (59 - (new Date().getMinutes()))*60 + (60 - (new Date().getSeconds())) )*1000));
 
 });
 
