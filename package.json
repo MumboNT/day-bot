@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Time and weather forecast updating bot.",
   "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
   "author": "MumboNT",
   "dependencies": {
     "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
