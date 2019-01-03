@@ -1,0 +1,12 @@
+{
+  "name": "Day-Bot",
+  "version": "1.0.0",
+  "description": "Time and weather forecast updating bot.",
+  "main": "bot.js",
+  "author": "MumboNT",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "discord.js": "^11.4.2",
+    "winston-discord": "^0.2.0"
+  }
+}
