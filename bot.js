@@ -695,7 +695,7 @@ function getBAD(){
 function minsToMidnight(){
   var now = new Date();
   var then = new Date(now);
-  then.setHours(6, 0, 0, 0);
+  then.setHours(5, 0, 0, 0);
   return (then - now) / 6e4;
   //return Math.round((msd-(now-now.getTimezoneOffset() * 6e4) % msd) / 6e4);
 }
