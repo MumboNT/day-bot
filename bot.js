@@ -66,7 +66,7 @@ client.on('ready', () => {
    }
    //Display possible values (Moon)
    if (msg.content.startsWith("!MoonValues") && msg.channel.id === id) {
-     msg.channel.send("Possible moon values:\n 1 (New Moon) <:new_moon:529421884299804692>\n 2 (Waxing Cresent) <:waxing_crescent_moon:529421976482349076>\n 3 (First Quarter) <:first_quarter_moon:529422288836231168>\n 4 (Waxing Gibbous) <:waxing_gibbous_moon:529422456096686101>\n 5 (Full Moon) <:full_moon:529422530839183370>\n 6 (Waning Gibbous) <:waning_gibbous_moon:529422592721944586>\n 7 (Last Quarter) <:waning_gibbous_moon:529422592721944586>\n 8 (Waning Cresent) <:waning_crescent_moon:529422909543022612>\n");
+     msg.channel.send("Possible moon values:\n 1 (New Moon) <:new_moon:529421884299804692>\n 2 (Waxing Cresent) <:waxing_crescent_moon:529421976482349076>\n 3 (First Quarter) <:first_quarter_moon:529422288836231168>\n 4 (Waxing Gibbous) <:waxing_gibbous_moon:529422456096686101>\n 5 (Full Moon) <:full_moon:529422530839183370>\n 6 (Waning Gibbous) <:waning_gibbous_moon:529422592721944586>\n 7 (Last Quarter) <:last_quarter_moon:529422691682222090>\n 8 (Waning Cresent) <:waning_crescent_moon:529422909543022612>\n");
    }
    //Display possible values (Season)
    if (msg.content.startsWith("!SeasonValues") && msg.channel.id === id) {
