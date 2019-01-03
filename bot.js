@@ -75,7 +75,7 @@ client.on('ready', () => {
    //Displays time until next update is posted.
    if (msg.content.startsWith("!NextUpdate") && msg.channel.id === id) {
      date = new Date();
-     msg.channel.send(24 - ((date.getHours())) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM")
+     msg.channel.send(23-((date.getHours())) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM")
    }
    //Help
    if (msg.content.startsWith("!Help") && msg.channel.id === id) {
@@ -102,7 +102,7 @@ client.on('ready', () => {
      getForecast();
    }, 24*3600000); // time between each interval in milliseconds
 
- }, ((5 - (new Date().getHours()))*60*60+(59 - (new Date().getMinutes()))*60+(60 - (new Date().getSeconds())))*1000);
+ }, ((23 - (new Date().getHours()))*60*60+(59 - (new Date().getMinutes()))*60+(60 - (new Date().getSeconds())))*1000);
 
 });
 
