@@ -24,7 +24,7 @@ var low = 0;
 var wind = 0;
 var border = "===================================\n";
 //Time-tracker channel
-const id = "530159269056610304";
+const id = "403950001765482507";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -78,7 +78,6 @@ client.on('ready', () => {
      date.setHours(date.getHours() - 6);
      msg.channel.send( ((23-(date.getHours()))) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM");
      msg.channel.send( (( ((23-(date.getHours()))) *60*60 + (59 - (date.getMinutes()))*60 + (60 - (date.getSeconds())) )*1000) + " milliseconds until 12AM");
-     //msg.channel.send(minsToMidnight() + " till midnight.");
    }
    //Help
    if (msg.content.startsWith("!Help") && msg.channel.id === id) {
@@ -88,13 +87,6 @@ client.on('ready', () => {
 
   //Check the current hour compared against 12AM. Get the time difference and convert to milliseconds. Do a timeout call to start the interval system.
   //https://en.wikipedia.org/wiki/24-hour_clock
-
-  //console.log("Try time");
-
-  //console.log((24 - (date.getHours())) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12Am");
-  //Confirmed correct
-  //var timeToTwelve = ((24 - (date.getHours()))*60*60+(59 - (date.getMinutes()))*60+(60 - (date.getSeconds())))*1000;
-  //console.log(timeToTwelve);
 
   date = new Date();
   date.setHours(date.getHours() - 6);
@@ -457,7 +449,7 @@ function getForecast(){
     string = string + "**Wind Speed:** " + wind  + " mph (" + Math.round((wind*1.6)) + " kph)\n";
     string = string + string2 + "=======================================\n";
   }
-  channel2 = client.channels.get("530159470836449301");
+  channel2 = client.channels.get("475087626597302273");
   channel2.send(string);
   if(string3 !== "") {
     channel2.send(string3);
@@ -694,13 +686,4 @@ function getBAD(){
       string3 = "@everyone, A tornado has occured, check for damage to your property. Hope you didn't leave anything outside.\n";
     }
   }
-}
-
-//Get minutes until midnight
-function minsToMidnight(){
-  var now = new Date();
-  var then = new Date(now);
-  then.setHours(7, 0, 0, 0);
-  return Math.abs((then - now) / 6e4);
-  //return Math.round((msd-(now-now.getTimezoneOffset() * 6e4) % msd) / 6e4);
 }
