@@ -30,7 +30,8 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var date;
   const channel = client.channels.get(id);
-  channel.send("Type !Help for command list.");
+  //channel.send("Type !Help for command list.");
+  getLastValues();
 
   //Change values dynamically
   client.on('message', msg => {
@@ -686,4 +687,55 @@ function getBAD(){
       string3 = "@everyone, A tornado has occured, check for damage to your property. Hope you didn't leave anything outside.\n";
     }
   }
+}
+
+//Get last values of time and update accordingly.
+function getLastValues(){
+  //Get last message in time-tracker.
+  var channel = client.channels.get(id);
+  channel.fetchMessages({ limit:1 }).then(messages => {
+    var last = messages.first().content.split("\n");
+
+    //Get and set week value.
+    var newWeek = parseInt(last[2].split("/")[0]) + 1;
+    if(newWeek > 52) {
+      week = 1;
+    }
+    else {
+      week = newWeek;
+    }
+    //console.log(week);
+
+    //Get and set moon value.
+    var newMoon = last[6].split(" ")[0];
+    //console.log(newMoon);
+    if(newMoon === ":new_moon:") {
+      moon = 2;
+    }
+    if(newMoon === ":waxing_crescent_moon:") {
+      moon = 3;
+    }
+    else if(newMoon === ":first_quarter_moon:") {
+      moon = 4;
+    }
+    else if(newMoon === ":waxing_gibbous_moon:") {
+      moon = 5;
+    }
+    else if(newMoon === ":full_moon:") {
+      moon = 6;
+    }
+    else if(newMoon === ":waning_gibbous_moon:") {
+      moon = 7;
+    }
+    else if(newMoon === ":last_quarter_moon:") {
+      moon = 8;
+    }
+    else if(newMoon === ":waning_crescent_moon:") {
+      moon = 1;
+    }
+    //console.log(moon);
+  }).catch(err => {
+    console.log(err);
+  });
+
 }
