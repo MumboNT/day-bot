@@ -30,7 +30,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var date;
   const channel = client.channels.get(id);
-  //channel.send("Type !Help for command list.");
+  client.users.get("183065668856315904").send("Type !Help for command list.");
   getLastValues();
 
   //Change values dynamically
