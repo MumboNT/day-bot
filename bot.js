@@ -93,12 +93,12 @@ client.on('ready', () => {
   date.setHours(date.getHours() - 6);
 
   setTimeout(function(){
-    timeTrackerUpdate();
     getForecast();
+    timeTrackerUpdate();
     //Activates every 24 hours.
     var interval = setInterval (function () {
-     timeTrackerUpdate();
      getForecast();
+     timeTrackerUpdate();
    }, 24*3600000); // time between each interval in milliseconds
 
  }, (( ((23-(date.getHours()))) *60*60 + (59 - (new Date().getMinutes()))*60 + (60 - (new Date().getSeconds())) )*1000));
@@ -362,7 +362,7 @@ function getMoon(){
 //Get the weather forecast for this week.
 function getForecast(){
   var i;
-  string = ":\n=======================================\n";
+  string = ":\n===================================\n";
   for( i = 1; i < 8; i++) {
     string = string + "**Day:** " + i + "\n";
     string2 = "";
@@ -448,7 +448,7 @@ function getForecast(){
     //output
     string = string + "**Temperature:** High " + high + "°F(" + Math.round(((high-32)*(5/9))) + "°C)/Low " + low + "°F(" + Math.round(((low-32)*(5/9))) + "°C)\n";
     string = string + "**Wind Speed:** " + wind  + " mph (" + Math.round((wind*1.6)) + " kph)\n";
-    string = string + string2 + "=======================================\n";
+    string = string + string2 + "===================================\n";
   }
   channel2 = client.channels.get("475087626597302273");
   channel2.send(string);
