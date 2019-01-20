@@ -93,12 +93,12 @@ client.on('ready', () => {
   date.setHours(date.getHours() - 6);
 
   setTimeout(function(){
-    getForecast();
     timeTrackerUpdate();
+    getForecast();
     //Activates every 24 hours.
     var interval = setInterval (function () {
-     getForecast();
      timeTrackerUpdate();
+     getForecast();
    }, 24*3600000); // time between each interval in milliseconds
 
  }, (( ((23-(date.getHours()))) *60*60 + (59 - (new Date().getMinutes()))*60 + (60 - (new Date().getSeconds())) )*1000));
