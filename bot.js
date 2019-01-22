@@ -94,11 +94,11 @@ client.on('ready', () => {
 
   setTimeout(function(){
     timeTrackerUpdate();
-    getForecast();
+
     //Activates every 24 hours.
     var interval = setInterval (function () {
      timeTrackerUpdate();
-     getForecast();
+     
    }, 24*3600000); // time between each interval in milliseconds
 
  }, (( ((23-(date.getHours()))) *60*60 + (59 - (new Date().getMinutes()))*60 + (60 - (new Date().getSeconds())) )*1000));
@@ -153,6 +153,7 @@ function timeTrackerUpdate(){
   //Output message and update values
   const channel = client.channels.get(id);
   channel.send(string);
+  getForecast();
   //console.log(string);
   week++;
   moon++;
