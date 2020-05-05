@@ -31,9 +31,10 @@ client.on('ready', () => {
   var date;
   const channel = client.channels.get(id);
 
-  client.users.get("183065668856315904").send("Readied");
+  //client.users.get("183065668856315904").send("Readied");
 
   getLastValues();
+  client.users.get("183065668856315904").send("Type !Help for command list.");
   /*
   var latestDate = new Date();
   var channel0 = client.channels.get(id);
