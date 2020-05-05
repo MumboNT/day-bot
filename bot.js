@@ -34,6 +34,7 @@ client.on('ready', () => {
   client.users.get("183065668856315904").send("Readied");
 
   getLastValues();
+  /*
   var latestDate = new Date();
   var channel0 = client.channels.get(id);
   channel0.fetchMessages({ limit:1 }).then(messages => {
@@ -41,7 +42,7 @@ client.on('ready', () => {
   }
   //latestDate++;
   client.users.get("183065668856315904").send("Type !Help for command list. Also " + latestDate.getDay()+1);
-
+  */
 
 
   //Change values dynamically
@@ -104,9 +105,11 @@ client.on('ready', () => {
   date.setHours(date.getHours() - 6);
 
   setTimeout(function(){
+    /*
     if(date.getDay()+1 != latestDate.getDay()+1)  {
       timeTrackerUpdate();
     }
+    */
 
     //Activates every 24 hours.
     var interval = setInterval (function () {
