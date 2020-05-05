@@ -33,8 +33,8 @@ client.on('ready', () => {
   const channel = client.channels.get(id);
 
   getLastValues();
-  latestDate++;
-  client.users.get("183065668856315904").send("Type !Help for command list. Also " + latestDate);
+  //latestDate++;
+  client.users.get("183065668856315904").send("Type !Help for command list. Also " + latestDate.getDay()+1);
 
 
 
