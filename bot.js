@@ -98,10 +98,10 @@ client.on('ready', () => {
   date.setHours(date.getHours() - 6);
 
   setTimeout(function(){
-    if(date.getDay()+1 != latestDate)  {
+    if(date.getDay()+1 != latestDate.getDay()+1)  {
       //timeTrackerUpdate();
     }
-    
+
     //Activates every 24 hours.
     var interval = setInterval (function () {
      //timeTrackerUpdate();
@@ -703,7 +703,8 @@ function getLastValues(){
   //Get last message in time-tracker.
   var channel = client.channels.get(id);
   channel.fetchMessages({ limit:1 }).then(messages => {
-    latestDate = messages.first().createdAt.getDay();
+    latestDate = new Date();
+    latestDate = messages.first().createdAt;
     var last = messages.first().content.split("\n");
 
     //Get and set week value.
