@@ -762,6 +762,7 @@ function getLastValues(){
 
 }
 
+/*
 process
   .on('SIGTERM', shutdown('SIGTERM'))
   .on('SIGINT', shutdown('SIGINT'))
@@ -781,3 +782,4 @@ function shutdown(signal) {
     }, 5000).unref();
   };
 }
+*/
