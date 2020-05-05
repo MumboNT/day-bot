@@ -23,6 +23,7 @@ var low = 0;
 //Wind speed variable
 var wind = 0;
 var border = "===================================\n";
+var latestDate = 0;
 //Time-tracker channel
 const id = "403950001765482507";
 
@@ -30,8 +31,12 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var date;
   const channel = client.channels.get(id);
-  client.users.get("183065668856315904").send("Type !Help for command list.");
+
   getLastValues();
+  latestDate++;
+  client.users.get("183065668856315904").send("Type !Help for command list. Also " + latestDate);
+
+
 
   //Change values dynamically
   client.on('message', msg => {
@@ -93,15 +98,18 @@ client.on('ready', () => {
   date.setHours(date.getHours() - 6);
 
   setTimeout(function(){
-    timeTrackerUpdate();
-
+    if(date.getDay()+1 != latestDate)  {
+      //timeTrackerUpdate();
+    }
+    
     //Activates every 24 hours.
     var interval = setInterval (function () {
-     timeTrackerUpdate();
-     
+     //timeTrackerUpdate();
+
    }, 24*3600000); // time between each interval in milliseconds
 
  }, (( ((23-(date.getHours()))) *60*60 + (59 - (new Date().getMinutes()))*60 + (60 - (new Date().getSeconds())) )*1000));
+*/
 
 });
 
@@ -695,6 +703,7 @@ function getLastValues(){
   //Get last message in time-tracker.
   var channel = client.channels.get(id);
   channel.fetchMessages({ limit:1 }).then(messages => {
+    latestDate = messages.first().createdAt.getDay();
     var last = messages.first().content.split("\n");
 
     //Get and set week value.
