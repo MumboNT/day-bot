@@ -40,7 +40,7 @@ client.on('ready', () => {
 
   var latestDate = new Date();
   var channel0 = client.channels.cache.get(id);
-  channel0.fetchMessages({ limit:1 }).then(messages => {
+  message.channel0.messages.fetch({ limit:1 }).then(messages => {
     latestDate = messages.first().createdAt;
   }).catch(err => {
     console.log(err);
@@ -712,7 +712,7 @@ function getBAD(){
 function getLastValues(){
   //Get last message in time-tracker.
   var channel = client.channels.cache.get(id);
-  channel.fetchMessages({ limit:1 }).then(messages => {
+  message.channel.messages.fetch({ limit:1 }).then(messages => {
     var last = messages.first().content.split("\n");
 
     //Get and set week value.
