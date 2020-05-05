@@ -23,7 +23,6 @@ var low = 0;
 //Wind speed variable
 var wind = 0;
 var border = "===================================\n";
-var latestDate = 0;
 //Time-tracker channel
 const id = "403950001765482507";
 
@@ -32,7 +31,14 @@ client.on('ready', () => {
   var date;
   const channel = client.channels.get(id);
 
+  client.users.get("183065668856315904").send("Readied");
+
   getLastValues();
+  var latestDate = new Date();
+  var channel0 = client.channels.get(id);
+  channel0.fetchMessages({ limit:1 }).then(messages => {
+    latestDate = messages.first().createdAt;
+  }
   //latestDate++;
   client.users.get("183065668856315904").send("Type !Help for command list. Also " + latestDate.getDay()+1);
 
@@ -99,12 +105,12 @@ client.on('ready', () => {
 
   setTimeout(function(){
     if(date.getDay()+1 != latestDate.getDay()+1)  {
-      //timeTrackerUpdate();
+      timeTrackerUpdate();
     }
 
     //Activates every 24 hours.
     var interval = setInterval (function () {
-     //timeTrackerUpdate();
+     timeTrackerUpdate();
 
    }, 24*3600000); // time between each interval in milliseconds
 
