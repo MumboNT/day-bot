@@ -103,7 +103,7 @@ client.on('ready', () => {
   //https://en.wikipedia.org/wiki/24-hour_clock
 
   date = new Date();
-  date.setHours(date.getHours() - 0);
+  date.setHours(date.getHours() - 6);
 
   setTimeout(function(){
 
@@ -759,13 +759,12 @@ function getLastValues(){
 
 }
 
-
 process
   .on('SIGTERM', shutdown('SIGTERM'))
   .on('SIGINT', shutdown('SIGINT'))
   .on('uncaughtException', shutdown('uncaughtException'));
 
-//setInterval(console.log.bind(console, 'tick'), 1000);
+setInterval(console.log.bind(console, 'tick'), 1000);
 http.createServer((req, res) => res.end('hi'))
   .listen(process.env.PORT || 3000, () => console.log('Listening'));
 
