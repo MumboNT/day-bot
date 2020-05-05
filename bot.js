@@ -7,7 +7,7 @@ const client = new Discord.Client();
 var token = process.env.TOKEN;
 
 client.login(token);
-//client.login();
+//client.login("");
 
 var week = 1;
 var moon = 1;
@@ -26,7 +26,7 @@ var wind = 0;
 var border = "===================================\n";
 //Time-tracker channel
 const id = "403950001765482507";
-//const http = require('http');
+const http = require('http');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -759,7 +759,7 @@ function getLastValues(){
 
 }
 
-/*
+
 process
   .on('SIGTERM', shutdown('SIGTERM'))
   .on('SIGINT', shutdown('SIGINT'))
@@ -779,4 +779,3 @@ function shutdown(signal) {
     }, 5000).unref();
   };
 }
-*/
