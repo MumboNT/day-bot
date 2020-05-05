@@ -31,7 +31,7 @@ const http = require('http');
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var date;
-  const channel = client.channels.get(id);
+  const channel = client.channels.cache.get(id);
 
   //client.users.get("183065668856315904").send("Readied");
   client.users.get("183065668856315904").send("Type !Help for command list.");
@@ -39,7 +39,7 @@ client.on('ready', () => {
   getLastValues();
 
   var latestDate = new Date();
-  var channel0 = client.channels.get(id);
+  var channel0 = client.channels.cache.get(id);
   channel0.fetchMessages({ limit:1 }).then(messages => {
     latestDate = messages.first().createdAt;
   }).catch(err => {
@@ -169,7 +169,7 @@ function timeTrackerUpdate(){
   }
 
   //Output message and update values
-  const channel = client.channels.get(id);
+  const channel = client.channels.cache.get(id);
   channel.send(string);
   getForecast();
   //console.log(string);
@@ -187,7 +187,7 @@ function timeTrackerUpdate(){
 
 //Adds holidays to the message if there are any holidays occuring on the week.
 function getHolidays(){
-  const channel = client.channels.get(id);
+  const channel = client.channels.cache.get(id);
   //0-31
   //Abadius (1-4)
   if(week == 1 ) {
@@ -469,7 +469,7 @@ function getForecast(){
     string = string + "**Wind Speed:** " + wind  + " mph (" + Math.round((wind*1.6)) + " kph)\n";
     string = string + string2 + "===================================\n";
   }
-  channel2 = client.channels.get("475087626597302273");
+  channel2 = client.channels.cache.get("475087626597302273");
   channel2.send(string);
   if(string3 !== "") {
     channel2.send(string3);
@@ -711,7 +711,7 @@ function getBAD(){
 //Get last values of time and update accordingly.
 function getLastValues(){
   //Get last message in time-tracker.
-  var channel = client.channels.get(id);
+  var channel = client.channels.cache.get(id);
   channel.fetchMessages({ limit:1 }).then(messages => {
     var last = messages.first().content.split("\n");
 
