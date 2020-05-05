@@ -7,6 +7,7 @@ const client = new Discord.Client();
 var token = process.env.TOKEN;
 
 client.login(token);
+//client.login();
 
 var week = 1;
 var moon = 1;
@@ -25,6 +26,7 @@ var wind = 0;
 var border = "===================================\n";
 //Time-tracker channel
 const id = "403950001765482507";
+const http = require('http');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -35,16 +37,14 @@ client.on('ready', () => {
 
   getLastValues();
   client.users.get("183065668856315904").send("Type !Help for command list.");
-  /*
+
   var latestDate = new Date();
   var channel0 = client.channels.get(id);
   channel0.fetchMessages({ limit:1 }).then(messages => {
     latestDate = messages.first().createdAt;
-  }
-  //latestDate++;
-  client.users.get("183065668856315904").send("Type !Help for command list. Also " + latestDate.getDay()+1);
-  */
-
+  }).catch(err => {
+    console.log(err);
+  });
 
   //Change values dynamically
   client.on('message', msg => {
@@ -89,7 +89,7 @@ client.on('ready', () => {
    //Displays time until next update is posted.
    if (msg.content.startsWith("!NextUpdate") && msg.channel.id === id) {
      date = new Date();
-     date.setHours(date.getHours() - 6);
+     date.setHours(date.getHours() - 0);
      msg.channel.send( ((23-(date.getHours()))) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM");
      msg.channel.send( (( ((23-(date.getHours()))) *60*60 + (59 - (date.getMinutes()))*60 + (60 - (date.getSeconds())) )*1000) + " milliseconds until 12AM");
    }
@@ -103,14 +103,17 @@ client.on('ready', () => {
   //https://en.wikipedia.org/wiki/24-hour_clock
 
   date = new Date();
-  date.setHours(date.getHours() - 6);
+
+  //client.users.get("183065668856315904").send("Type !Help for command list. Also " + latestDate + " " + (date.getDay()+1));
+
 
   setTimeout(function(){
-    /*
-    if(date.getDay()+1 != latestDate.getDay()+1)  {
+
+    if(date.getDay() != latestDate.getDay())  {
       timeTrackerUpdate();
     }
-    */
+
+    date.setHours(date.getHours() - 0);
 
     //Activates every 24 hours.
     var interval = setInterval (function () {
@@ -119,7 +122,7 @@ client.on('ready', () => {
    }, 24*3600000); // time between each interval in milliseconds
 
  }, (( ((23-(date.getHours()))) *60*60 + (59 - (new Date().getMinutes()))*60 + (60 - (new Date().getSeconds())) )*1000));
-*/
+
 
 });
 
@@ -757,4 +760,24 @@ function getLastValues(){
     console.log(err);
   });
 
+}
+
+process
+  .on('SIGTERM', shutdown('SIGTERM'))
+  .on('SIGINT', shutdown('SIGINT'))
+  .on('uncaughtException', shutdown('uncaughtException'));
+
+setInterval(console.log.bind(console, 'tick'), 1000);
+http.createServer((req, res) => res.end('hi'))
+  .listen(process.env.PORT || 3000, () => console.log('Listening'));
+
+function shutdown(signal) {
+  return (err) => {
+    console.log(`${ signal }...`);
+    if (err) console.error(err.stack || err);
+    setTimeout(() => {
+      console.log('...waited 5s, exiting.');
+      process.exit(err ? 1 : 0);
+    }, 5000).unref();
+  };
 }
