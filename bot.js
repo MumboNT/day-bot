@@ -26,7 +26,7 @@ var wind = 0;
 var border = "===================================\n";
 //Time-tracker channel
 const id = "403950001765482507";
-const http = require('http');
+//const http = require('http');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -34,9 +34,9 @@ client.on('ready', () => {
   const channel = client.channels.get(id);
 
   //client.users.get("183065668856315904").send("Readied");
+  client.users.get("183065668856315904").send("Type !Help for command list.");
 
   getLastValues();
-  client.users.get("183065668856315904").send("Type !Help for command list.");
 
   var latestDate = new Date();
   var channel0 = client.channels.get(id);
@@ -103,9 +103,7 @@ client.on('ready', () => {
   //https://en.wikipedia.org/wiki/24-hour_clock
 
   date = new Date();
-
-  //client.users.get("183065668856315904").send("Type !Help for command list. Also " + latestDate + " " + (date.getDay()+1));
-
+  date.setHours(date.getHours() - 0);
 
   setTimeout(function(){
 
@@ -122,7 +120,6 @@ client.on('ready', () => {
    }, 24*3600000); // time between each interval in milliseconds
 
  }, (( ((23-(date.getHours()))) *60*60 + (59 - (new Date().getMinutes()))*60 + (60 - (new Date().getSeconds())) )*1000));
-
 
 });
 
