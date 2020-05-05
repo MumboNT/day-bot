@@ -713,8 +713,6 @@ function getLastValues(){
   //Get last message in time-tracker.
   var channel = client.channels.get(id);
   channel.fetchMessages({ limit:1 }).then(messages => {
-    latestDate = new Date();
-    latestDate = messages.first().createdAt;
     var last = messages.first().content.split("\n");
 
     //Get and set week value.
