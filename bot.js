@@ -111,7 +111,7 @@ client.on('ready', () => {
       timeTrackerUpdate();
     }
 
-    date.setHours(date.getHours() - 0);
+    //date.setHours(date.getHours() - 0);
 
     //Activates every 24 hours.
     var interval = setInterval (function () {
