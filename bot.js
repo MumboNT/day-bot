@@ -34,7 +34,7 @@ client.on('ready', () => {
   const channel = client.channels.cache.get(id);
 
   //client.users.cache.get("183065668856315904").send("Readied");
-  client.users.cache.get("183065668856315904").send("Type !Help for command list.");
+
 
   getLastValues();
 
@@ -105,6 +105,8 @@ client.on('ready', () => {
   date = new Date();
   date.setHours(date.getHours() - 6);
 
+  client.users.cache.get("183065668856315904").send( ((23-(date.getHours()))) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM");
+  client.users.cache.get("183065668856315904").send("Last message sent day " + latestDate.getDay() + " and current day is " + date.getDay());
   setTimeout(function(){
 
     if(date.getDay() != latestDate.getDay())  {
