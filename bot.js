@@ -105,7 +105,7 @@ client.on('ready', () => {
   date = new Date();
   date.setHours(date.getHours() - 6);
 
-  client.users.cache.get("183065668856315904").send( ((23-(date.getHours()))) + " Hours, " + (59 - (date.getMinutes())) + " minutes, and " + (60 - (date.getSeconds())) + " seconds until 12AM");
+  client.users.cache.get("183065668856315904").send( ((23-(date.getUTCHours()))) + " Hours, " + (59 - (date.getUTCMinutes())) + " minutes, and " + (60 - (date.getUTCSeconds())) + " seconds until 12AM");
   client.users.cache.get("183065668856315904").send("Last message sent day " + latestDate.getDate() + " and current day is " + date.getDate());
   setTimeout(function(){
 
